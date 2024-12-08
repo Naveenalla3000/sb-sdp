@@ -1,0 +1,12 @@
+services:
+  - name: spring-boot-app
+    type: web
+    plan: free  # Change to "starter" or other plan as needed
+    dockerfilePath: ./Dockerfile  # Path to your Dockerfile
+    buildCommand: ./mvnw clean package  # Adjust based on your Maven/Gradle setup
+    startCommand: java -jar target/your-app-name.jar  # Replace with the actual JAR name
+    healthCheckPath: /
+    autoDeploy: true
+    region: oregon  # Specify the region (e.g., oregon, frankfurt, etc.)
+    branch: main  # Specify the branch to deploy from
+    runtime: docker  # Timeout in seconds for build/startup

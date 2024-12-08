@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,10 +22,10 @@ public class Course {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "faculty_id")
-    @JsonIgnore // Prevent circular serialization
+    @JsonIgnore
     private ErpUser faculty;
 
     @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)
-    @JsonIgnore // Prevent circular serialization
+    @JsonIgnore
     private List<ErpUser> students;
 }
