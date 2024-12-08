@@ -8,15 +8,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@Data
-class Res{
-    private String token,role;
-}
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("*")
 public class ErpUserCtrl {
     private final ErpUserSrv erpUserSrv;
     @PostMapping("/register")
